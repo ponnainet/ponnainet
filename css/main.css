@@ -44,3 +44,13 @@ img {
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
+.myGallery {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.myGallery img {
+  width: 100%;
+}
