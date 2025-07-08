@@ -55,14 +55,14 @@ img {
 
 .myGallery img {
   width: 100%;
-  height: auto;              /* Let height adjust naturally */
-  object-fit: contain;       /* Prevent cropping */
-  aspect-ratio: auto;        /* Optional: Let browser calculate aspect ratio */
+  height: auto;               /* Allow image height to grow */
+  object-fit: contain;        /* Show the whole image, even if it doesn’t fill box */
+  aspect-ratio: 4 / 3;        /* Makes all images same shape visually */
+  background-color: #eee;     /* Optional: fill background for images that don’t fit ratio */
   display: block;
   border-radius: 8px;
   cursor: pointer;
 }
-
 
 /* Lightbox */
 
