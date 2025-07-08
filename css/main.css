@@ -47,23 +47,12 @@ img {
 
 .myGallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;                     /* spacing between items */
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0;                    /* remove gallery padding if any */
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .myGallery img {
   width: 100%;
-  height: auto;                  /* keeps image's natural aspect ratio */
-  object-fit: fill;              /* show full image */
-  display: block;
-  margin: 0;
-  padding: 0;
-  border: none;
-  border-radius: 0;              /* remove round corners if undesired */
-  box-shadow: none;              /* remove any default shadows */
 }
 
 /* Lightbox */
