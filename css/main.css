@@ -55,10 +55,10 @@ img {
 
 .myGallery img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto;              /* Let height adjust naturally */
+  object-fit: contain;       /* Prevent cropping */
+  aspect-ratio: auto;        /* Optional: Let browser calculate aspect ratio */
   display: block;
-  aspect-ratio: auto; /* Ensures no stretching */
   border-radius: 8px;
   cursor: pointer;
 }
