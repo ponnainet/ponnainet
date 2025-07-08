@@ -47,13 +47,22 @@ img {
 
 .myGallery {
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .myGallery img {
   width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: auto; /* Ensures no stretching */
+  border-radius: 8px;
+  cursor: pointer;
 }
+
 
 /* Lightbox */
 
