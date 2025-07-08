@@ -48,20 +48,22 @@ img {
 .myGallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  gap: 20px;                     /* spacing between items */
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0;                    /* remove gallery padding if any */
 }
 
 .myGallery img {
   width: 100%;
-  height: auto;               /* Allow image height to grow */
-  object-fit: contain;        /* Show the whole image, even if it doesn’t fill box */
-  aspect-ratio: 4 / 3;        /* Makes all images same shape visually */
-  background-color: #eee;     /* Optional: fill background for images that don’t fit ratio */
+  height: auto;                  /* keeps image's natural aspect ratio */
+  object-fit: fill;              /* show full image */
   display: block;
-  border-radius: 8px;
-  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;              /* remove round corners if undesired */
+  box-shadow: none;              /* remove any default shadows */
 }
 
 /* Lightbox */
