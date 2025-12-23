@@ -1,0 +1,567 @@
+html {
+  font-size: 75%; /* font-size 1em = 10px on default browser settings */
+}
+
+body {
+    padding-top: 100px;
+    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+    padding-right: 10%;
+    max-width: 110rem;
+    padding-bottom: 10%;
+}
+
+
+h1 {
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 3.2rem;
+    line-height: 1;
+}
+
+h2 {
+    padding-top: 30px;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+
+p {
+    font-size: 1.8rem;
+    text-indent: 2em;
+}
+
+.column .para p  {
+    text-align: justify;
+    hyphens: auto;
+    text-justify: inter-word;
+    margin-top: 2.8rem;
+    margin-bottom: 2.8rem;
+    line-height: 3rem;
+}
+
+.column .para2 p  {
+    text-align: justify;
+    hyphens: auto;
+    text-justify: inter-word;
+    margin-top: 2.8rem;
+    margin-bottom: 2.8rem;
+    line-height: 2.5rem;
+}
+
+.column .para blockquote p {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 2.3rem;
+  text-align: center;
+  margin-bottom: 5rem;
+  
+}
+
+/* Mobile: screens 600px or smaller */
+@media (max-width: 600px) {
+  .column .para blockquote p {
+    font-size: 1.8rem;   /* smaller font for mobile */
+    margin-bottom: 3rem; /* optional smaller spacing */
+    text-align: center;
+  }
+}
+
+/* Optional: tablets / medium screens */
+@media (max-width: 1024px) {
+  .column .para blockquote p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+}
+
+.demo_font_arial{
+    font-family: arial, sans-serif;
+}
+
+.header-01 {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Menu Start */
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #e9eaebff; /* Gray */
+    padding: 1rem 10%; /* Top/bottom + left/right padding */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    transition: background-color 0.3s, padding 0.3s;
+    display: flex;           /* align logo and menu in a row */
+    align-items: center;     /* vertically center items */
+    justify-content: flex-start;
+}
+
+
+/* Main nav list */
+.main-nav .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    margin-left: 4rem; /* small gap between logo and nav list */
+}
+
+/* Main nav links */
+.main-nav .nav-list > li > a {
+    text-decoration: none;
+    color: #000; /* Black text */
+    font-weight: 400;
+    font-size: 1.2rem;
+    display: inline-block;
+    padding-bottom: 2px;
+    transition: color 0.2s, border-bottom 0.2s;
+}
+
+.main-nav .nav-list > li > a:hover {
+    color: #555; /* Slightly darker on hover */
+}
+
+.main-nav .logo {
+    text-decoration: none;
+    color: #000;          /* same as other links */
+    font-weight: 400;     /* same weight */
+    font-size: 1.4rem;    /* same size as nav links */
+    padding-bottom: 0;
+    transition: color 0.2s;
+}
+
+/* Hover effect for logo / home link */
+.main-nav .logo:hover {
+    color: #007BFF;       /* same blue hover as other links */
+}
+
+#header {
+    width: 100%;
+    z-index: 1000;
+}
+
+.main-nav {
+    position: fixed;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative; /* necessary for absolute dropdown menu */
+}
+
+/* Dropdown content hidden by default */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #e9eaebff !important;
+    min-width: 150px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+}
+
+/* Show dropdown when parent has active */
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+/* Dropdown links */
+.dropdown-content li a {
+    display: block;
+    padding: 0.75rem 1.25rem; 
+    text-decoration: none;
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: 400; 
+    background-color: #e9eaebff !important;
+    transition: background-color 0.2s;
+    line-height: 1.6;           /* more breathing room */
+}
+
+.dropdown-content li a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Main nav links hover */
+.main-nav .nav-list > li > a:hover {
+    color: #007BFF; /* Blue highlight */
+}
+
+/* Dropdown links hover */
+.dropdown-content li a:hover {
+    color: #007BFF; /* Blue highlight */
+    background-color: #dcdcdc; /* optional subtle gray hover background */
+}
+
+.dropdown.active > .dropbtn {
+    color: #007bff; /* same blue as hover */
+}
+
+    /* Top space only for first submenu item */
+    .dropdown-content li:first-child a {
+        margin-top: 0.5rem;
+    }
+
+    /* Bottom space only for last submenu item */
+    .dropdown-content li:last-child a {
+        margin-bottom: 0.5rem;
+    }
+    
+/* Menu End */
+
+/* Menu Mobile */
+
+
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+    z-index: 1100;          /* above nav */
+    color: #000; /* default color */
+    transition: color 0.2s;
+}
+
+.hamburger:focus,
+.hamburger:active {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Active page highlight */
+.main-nav a.active-page {
+    color: #007bff !important;  /* same blue as hover */
+}
+
+
+
+@media (max-width: 768px) {
+
+	/* Mobile nav list */
+    .main-nav .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #e9eaebff;
+        position: relative;
+        overflow: visible !important;
+        padding: 0;
+        margin-top: 1rem; 
+        margin: 0;
+        gap: 0;
+    }
+    
+	.main-nav .nav-list.active {
+        display: flex;
+    }
+    
+	.hamburger {
+        display: block; 
+        margin-left: auto; /* push to right */
+        color: #000;
+        position: relative; /* ensure above nav items */
+    }
+    
+    .hamburger.active {
+        color: #007bff;  /* same blue as nav hover */
+    }
+    
+     /* Make top row: logo left, hamburger right */
+		.main-nav {
+        flex-wrap: wrap; /* allow nav list to wrap below */
+    }
+
+    /* Hide nav list by default */
+		.main-nav .nav-list:not(.active) {
+        display: none;
+    }
+        .dropdown {
+        position: relative;  /* ensure natural expansion */
+        width: 100%;
+    }
+
+
+    /* Mobile dropdown links container */
+     .dropdown-content {
+        position: relative !important;
+        top: 0;
+        left: 0;
+        display: none;
+        flex-direction: column;
+        background-color: #e9eaebff;
+        padding-left: 1rem; /* Indent sub-menu */
+        box-shadow: none;
+        border-radius: 0;
+        width: 100%;
+        overflow: visible;
+    }
+
+    /* Expand dropdown when active */
+    .dropdown.active .dropdown-content {
+        display: flex;
+    }
+
+    /* Mobile nav links padding */
+    .nav-list > li > a,
+    .dropdown-content li a {
+        padding: 0.75rem 1.5rem;
+        font-size: 1.2rem;
+        color: #000;	
+    }
+    
+    .dropdown-content li a:hover {
+        color: #007bff;
+    }
+}
+
+	/* End Mobile */
+
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	.myGallery {
+	  display: grid;
+	  margin-top: 3rem;
+	  margin-bottom: 3rem;
+	  gap: 24px;
+	  grid-template-columns: repeat(3, 1fr);
+	}
+
+	/* Tablets / small laptops */
+	@media (max-width: 1100px) {
+	  .myGallery {
+		grid-template-columns: repeat(2, 1fr);
+	  }
+	}
+
+	/* Phones */
+	@media (max-width: 600px) {
+	  .myGallery {
+		grid-template-columns: 1fr;
+	  }
+	}
+
+	.myGallery img {
+	  display: block;
+	  width: 100%;
+	  height: auto;
+	  padding: 0;
+	  margin: 0;
+	}
+
+	.myGallery img {
+	  transition: transform 0.25s ease, box-shadow 0.25s ease;
+	  will-change: transform;
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+	  .myGallery img:hover {
+		transform: scale(1.04) translateY(-2px);
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+	  }
+	}
+
+	/* Lightbox Container */
+	.lightbox {
+	  display: none;
+	  position: fixed;
+	  inset: 0;
+	  background: rgba(0,0,0,0.9);
+	  z-index: 5000;
+	  justify-content: center;  /* vertical centering */
+	  align-items: center;      /* horizontal centering */
+	  flex-direction: column;
+	  padding: 2vh 0;
+	}
+
+	/* Stage holds image and caption */
+	.lightbox-stage {
+	  display: flex;
+	  flex-direction: column;     /* stack image + caption */
+	  justify-content: center;    /* vertical centering */
+	  align-items: center;
+	  height: auto;               /* auto height to fit image + caption */
+	  max-height: 90vh;           /* never exceed viewport */
+	  gap: 5px;                   /* small gap between image & caption */
+	  padding: 10px 0;            /* optional padding */
+	}
+
+
+	/* Lightbox Image */
+	.lightbox-content {
+	  max-width: 90%;
+	  max-height: calc(90vh - 40px); /* leave space for caption (adjust 40px as needed) */
+	  object-fit: contain;
+	}
+
+
+	/* Close Button */
+	.close {
+	  position: absolute;
+	  top: 30px;
+	  right: 40px;
+	  font-size: 40px;
+	  font-weight: bold;
+	  cursor: pointer;
+	  color: #007bff; /* highlight blue */
+	  background: transparent;
+	  outline: none;
+	  box-shadow: none;
+	  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+	  z-index: 6001;
+	  transition: transform 0.2s ease;
+	}
+
+	.close:hover,
+	.close:focus,
+	.close:active {
+	  transform: scale(1.2);
+	  color: #007bff; /* highlight blue */ 
+	  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+	}
+
+	/* Navigation Arrows */
+	.prev,
+	.next {
+	  position: absolute;
+	  top: 50%;
+	  transform: translateY(-50%);
+	  width: 120px;
+	  height: 120px;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  font-size: 44px;
+	  font-weight: bold;
+	  color: rgba(51, 157, 255, 0.5);
+	  cursor: pointer;
+	  user-select: none;
+	  z-index: 7000;
+	  transition: all 0.2s ease;
+	}
+
+	.prev { left: 0; }
+	.next { right: 0; }
+
+	.prev:hover,
+	.next:hover { 
+	  color: #339dff;  
+	  transform: translateY(-50%) scale(1.15); 
+	}
+
+	.prev:active,
+	.next:active { 
+	  transform: translateY(-50%) scale(1.05); 
+	}
+
+	/* Caption */
+	.lightbox-caption {
+	  margin-top: 18px;
+	  font-size: 2rem;
+	  line-height: 1.4;
+	  max-width: 90%;         
+	  color: white;
+	  text-align: center;
+	}
+
+
+	/* MOBILE STYLES */
+	@media (max-width: 768px) {
+	  .lightbox-stage {
+		max-height: none;       /* allow auto height for centering */
+	  }
+
+	  .lightbox-content {
+		max-height: 60vh;
+	  }
+
+	  .lightbox-caption {
+		font-size: 1.4rem;
+		margin-top: 8px;
+	  }
+
+	  .prev,
+	  .next {
+		width: 90px;
+		height: 90px;
+		font-size: 30px;
+		color: #007bff; /* highlight blue */
+		background: none;
+		transform: translateY(-50%);
+	  }
+
+	  .prev { left: 10px; }
+	  .next { right: 10px; }
+
+	  .prev:hover,
+	  .next:hover,
+	  .prev:active,
+	  .next:active { transform: translateY(-50%); }
+	  
+
+	}
+
+
+	/* Desktop tweak: slightly smaller image */
+	@media (min-width: 1024px) {
+	  .lightbox-content {
+		max-width: 95%;    /* slightly smaller than 90% */
+		max-height: calc(80vh - 40px); /* slightly smaller than 90vh - caption space */
+	  }
+	}
+
+	.column .image img {
+	  width: 100%;       /* make image scale to container width */
+	  max-width: 410px;  /* keep it from getting too large on desktop */
+	  height: auto;      /* maintain aspect ratio */
+	  display: block;
+	}
+
+	.column .credit {
+	  font-size: 1rem;
+	  color: #555;
+	  margin-top: 23px;
+	  text-indent: 0em;
+	  
+	}
+
+	.column .image2 img {
+	  width: 100%;       /* make image scale to container width */
+	  max-width: 100rem;  /* keep it from getting too large on desktop */
+	  height: auto;      /* maintain aspect ratio */
+	  display: block;
+	}
+	
