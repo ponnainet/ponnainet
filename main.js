@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function showImage(index) {
     if (!currentGalleryImages.length || index < 0 || index >= currentGalleryImages.length) return;
     currentIndex = index;
-    
+
     if (lightboxImg) lightboxImg.src = currentGalleryImages[currentIndex].src;
-    
+
     // Set caption text
     if (lightboxCaption) {
         // Use data attribute 'data-caption' for each image
@@ -94,26 +94,38 @@ if (prevBtn) prevBtn.addEventListener("click", (e) => {
 
     // ---------- Hamburger menu ----------
      // ---------- Hamburger menu ----------
-    const hamburger = document.querySelector('.hamburger');
-    const navList = document.querySelector('.nav-list');
-    const mainNav = document.querySelector('.main-nav');
+const hamburger = document.querySelector('.hamburger');
+const navList = document.querySelector('.nav-list');
+const mainNav = document.querySelector('.main-nav');
 
-    if (hamburger && navList) {
-        hamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navList.classList.toggle('active');
-            
-            hamburger.classList.toggle('active');
-        });
+let activePageDropdown = null;
 
-        // Clicking outside closes the mobile nav
-        document.addEventListener('click', (e) => {
-            if (!mainNav.contains(e.target)) {
-                navList.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-        });
-    }
+if (hamburger && navList) {
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        navList.classList.toggle('active');
+        hamburger.classList.toggle('active');
+
+        // Re-open the current-page submenu whenever
+        // the mobile navigation is opened
+        if (
+            window.innerWidth <= 768 &&
+            navList.classList.contains('active') &&
+            activePageDropdown
+        ) {
+            activePageDropdown.classList.add('active');
+        }
+    });
+
+    // Clicking outside closes the mobile nav
+    document.addEventListener('click', (e) => {
+        if (mainNav && !mainNav.contains(e.target)) {
+            navList.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+}
 
     // ---------- Dropdown menus ----------
     const dropdownBtns = document.querySelectorAll('.dropdown > .dropbtn');
@@ -143,7 +155,7 @@ if (prevBtn) prevBtn.addEventListener("click", (e) => {
             btn.parentElement.classList.remove('active');
         });
     });
-    
+
    // ---------- Active page highlight ----------
 const currentPath = window.location.pathname.split("/").pop() || "index.html";
 
@@ -158,12 +170,15 @@ document.querySelectorAll('.main-nav a').forEach(link => {
 
         // If this link is inside a dropdown, also highlight the parent button
         const dropdown = link.closest('.dropdown');
-        if (dropdown) {
-            const dropBtn = dropdown.querySelector('.dropbtn');
-            if (dropBtn) dropBtn.classList.add('active-page');
-        }
+
+if (dropdown) {
+    activePageDropdown = dropdown;
+
+    const dropBtn = dropdown.querySelector('.dropbtn');
+    if (dropBtn) dropBtn.classList.add('active-page');
+}
     }
-    
+
 // ---------- Mobile only: Expand submenu if active page is inside ----------
 if (window.innerWidth <= 768) { // Mobile breakpoint
     const activeLink = document.querySelector('.nav-list a.active-page');
