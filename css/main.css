@@ -646,3 +646,7 @@ p {
     line-height: 1.4;
     margin: 0.6rem 0;
 }
+
+.exhibition h3 small {
+    font-size: 0.95em;
+}
