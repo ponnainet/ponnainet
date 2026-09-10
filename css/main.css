@@ -606,3 +606,29 @@ p {
     font-size: 15.5px;
 }
 
+
+.video-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.art-video {
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 900px) {
+    .video-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .art-video {
+        width: 80%;
+        max-width: 400px;
+    }
+}
+
+
